@@ -126,6 +126,29 @@
     max-width: 34ch;
   }
 
+  .tip {
+    border-left: 3px solid var(--mustard);
+    padding-left: 14px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    opacity: 0.9;
+    max-width: 36ch;
+  }
+
+  .tip b {
+    display: block;
+    font-family: "Archivo Black", system-ui, sans-serif;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    margin-bottom: 3px;
+  }
+
+  .tip em {
+    font-style: normal;
+    color: var(--mustard);
+    font-weight: 600;
+  }
+
   /* ---------- the code, as a last resort ---------- */
 
   .code {
@@ -147,13 +170,14 @@
   /* ---------- one orchestrated entrance ---------- */
 
   @media (prefers-reduced-motion: no-preference) {
-    .figure, .claim, .actions, .note, .code {
+    .figure, .claim, .actions, .note, .tip, .code {
       animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
     }
     .figure  { animation-delay: 0.02s; }
     .claim   { animation-delay: 0.09s; }
     .actions { animation-delay: 0.16s; }
     .note    { animation-delay: 0.22s; }
+    .tip     { animation-delay: 0.25s; }
     .code    { animation-delay: 0.26s; }
   }
 
@@ -185,6 +209,13 @@
     Ordering happens in Telegram — it's free, and your discount is already
     attached to this link.
   </p>
+
+  <div class="tip">
+    <b>Set a username while you're in there</b>
+    Telegram → Settings → Username. Something like <em>@sam_h</em>. It's how
+    your driver reaches you if they can't find the door — and it's not the
+    same as your display name.
+  </div>
 
   <div class="code">
     <span>Your code</span>
@@ -237,7 +268,8 @@
   // menu button — so say that plainly rather than leaving them guessing.
   install.addEventListener("click", function () {
     document.getElementById("note").textContent =
-      "Once Telegram is installed, come back here and tap Open the menu.";
+      "Once Telegram is installed, set a username, then come back here and " +
+      "tap Open the menu.";
   });
 })();
 </script>
